@@ -1,0 +1,24 @@
+<h1>Lottery</h1>
+
+{% if empty%}
+    <script type="text/javascript">
+    alert("6개 번호를 입력해주세요!")
+    </script>
+{% endif %}
+
+{% if wrong%}
+    <script type="text/javascript">
+    alert("{{wrong}} 중복입니다!")
+    </script>
+{% endif %}
+
+<form action="{%url 'result'%}">
+    <input type="number" name="1" min="1" max="45">
+    <input type="number" name="2" min="1" max="45">
+    <input type="number" name="3" min="1" max="45">
+    <input type="number" name="4" min="1" max="45">
+    <input type="number" name="5" min="1" max="45">
+    <input type="number" name="6" min="1" max="45">
+    <br>
+    <input type="submit" value="확인">
+</form>

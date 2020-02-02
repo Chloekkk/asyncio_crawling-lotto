@@ -1,0 +1,16 @@
+<h1>Lotto Result</h1>
+
+<h3>내가 뽑은 번호</h3>
+{%for num in numlist%}
+{{num}}
+{%endfor%}
+<br>
+<h3>당첨 번호</h3>
+{%for lo in lotto%}
+{{lo}}
+{%endfor%}
+
+<h5>맞은 개수</h5>
+{{sum}}
+<h5>맞은 확률</h5>
+{{percent}}%
