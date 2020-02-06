@@ -1,6 +1,7 @@
 from django.shortcuts import render
 import random
 from collections import Counter
+import lotto.asyncio_crawling
 
 # Create your views here.
 
@@ -8,6 +9,7 @@ def home(request):
     return render(request, 'home.html')
 
 def result(request):
+    
     numberlist = []
     # lottolist = list(range(1,46))
     lottolist = random.sample(list(range(1, 46)), 6)
@@ -36,6 +38,10 @@ def result(request):
     for num in numberlist:
         if num in lottolist:
             sum += 1
+    
+    print("hello")
+    print(asyncio_crawling.results)
+    results = asyncio_crawling.results
 
     percentage = (sum/6)*100
-    return render(request, 'result.html', {'numlist':numberlist, 'lotto':lottolist, 'sum':sum, 'percent':percentage})
+    return render(request, 'result.html', {'numlist':numberlist, 'lotto':lottolist, 'sum':sum, 'percent':percentage, 'all_winning_numbers': results})

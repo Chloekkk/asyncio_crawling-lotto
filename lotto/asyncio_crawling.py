@@ -6,9 +6,9 @@ from collections import ChainMap
 
 urls = ["https://www.dhlottery.co.kr/gameResult.do?method=byWin&drwNo="+i
             for i in list(list(map(str, range(1, 5))))] # 5 -> 811 로 변경
-
 s = time.time()
 results = []
+
 def get_request(url):
     try:
         return requests.get(url, timeout=10, headers={"User-Agent": "Mozilla/5.0"})
