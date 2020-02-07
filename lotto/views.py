@@ -44,17 +44,24 @@ def result(request):
     results = lotto.asyncio_crawling.results
     final_last_lotto_num = []
     final_count = 0
+    bonus = False
     for i in range(1, len(results.keys())+1):
-        my_num = set(numberlist)
-        last_lotto_num_count = set(results.get(i)[:-1])
-        final_last_lotto_num_count = set(final_last_lotto_num[:-1])
-        
-        count = len(my_num & last_lotto_num)
-        final_count = len(my_num & final_last_lotto_num_count)
         if bool(final_last_lotto_num) == False :
             final_last_lotto_num.append(results.get(i))
-        elif count > final_count:
-            pass # 여기서 부터 머리아파 
+        
+        count = len(set(numberlist) & set(results.get(i)[:-1]))
+        final_count = len(set(numberlist) & set(final_last_lotto_num[0][:-1]))
+
+        if count > final_count:
+            final_last_lotto_num.clear()
+            final_last_lotto_num.append(results.get(i))
+        elif count == final_count:
+            final_last_lotto_num.append(results.get(i))
+        elif count < final_count:
+            pass 
+
+        if final_count == 5:
+            
 
 
 
