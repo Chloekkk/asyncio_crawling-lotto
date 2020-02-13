@@ -5,7 +5,7 @@ import time
 from collections import ChainMap
 
 urls = ["https://www.dhlottery.co.kr/gameResult.do?method=byWin&drwNo="+i
-            for i in list(list(map(str, range(1, 5))))] # 5 -> 811 로 변경
+            for i in list(list(map(str, range(1, 100))))] # 5 -> 811 로 변경
 s = time.time()
 results = []
 
